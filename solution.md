@@ -34,3 +34,77 @@
 ![task 7](Linux_Picture/image_07_2.jpg)
 ![task 7](Linux_Picture/image_07_3.jpg)
 
+## SQL
+
+8. Создать таблицы с иерархией из диаграммы в БД
+```sql
+create table domestic_animals
+(
+	id int auto_increment,
+	species varchar(100) not null,
+	primary key (id)
+);
+
+create table pack_animals
+(
+	id int auto_increment,
+	species varchar(100) not null,
+	primary key (id)
+);
+
+create table dogs
+(
+	id int auto_increment,
+	name varchar(100),
+	commands varchar(100),
+	birth_date date,
+	primary key (id)
+);
+
+create table cats
+(
+	id int auto_increment,
+	name varchar(100),
+	commands varchar(100),
+	birth_date date,
+	primary key (id)
+);
+
+create table hamsters
+(
+	id int auto_increment,
+	name varchar(100),
+	commands varchar(100),
+	birth_date date,
+	primary key (id)
+);
+
+create table horses
+(
+	id int auto_increment,
+	name varchar(100),
+	commands varchar(100),
+	birth_date date,
+	primary key (id)
+);
+
+create table camels
+(
+	id int auto_increment,
+	name varchar(100),
+	commands varchar(100),
+	birth_date date,
+	primary key (id)
+);
+
+create table donkeys
+(
+	id int auto_increment,
+	name varchar(100),
+	commands varchar(100),
+	birth_date date,
+	primary key (id)
+);
+```
+
+
