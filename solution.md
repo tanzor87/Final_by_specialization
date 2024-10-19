@@ -167,3 +167,44 @@ change id id int(11) not null auto_increment;
 
 select * from equidae;
 ```
+
+11.Создать новую таблицу “молодые животные” в которую попадут все
+животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
+до месяца подсчитать возраст животных в новой таблице
+
+```sql
+create table young_animals
+select *, concat
+	(
+		floor((timestampdiff(month, birth_date, curdate()) / 12)), ' Years ', 
+		mod(timestampdiff(month, birth_date, curdate()), 12), ' Months'
+	) as age
+from (
+select 'dog' as type_animal, name, commands, birth_date from dogs d 
+union
+select 'cat' as type_animal, name, commands, birth_date from cats c
+union
+select 'hamster' as type_animal, name, commands, birth_date from hamsters h 
+union
+select 'horse' as type_animal, name, commands, birth_date from horses h2
+union
+select 'donkey' as type_animal, name, commands, birth_date from donkeys d2 
+) as animals
+where birth_date >= date_sub(curdate(), interval 3 year)
+and birth_date <= date_sub(curdate(), interval 1 year)
+;
+
+-- добавляем поле id
+alter table young_animals
+add id int (11) not null first;
+
+alter table young_animals
+add index (id);
+
+-- Делаем поле id с автозаполнением
+alter table young_animals
+change id id int(11) not null auto_increment;
+
+select * from young_animals;
+```
+
