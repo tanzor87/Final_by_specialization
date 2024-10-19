@@ -141,3 +141,29 @@ insert into donkeys (name, commands, birth_date) values
 	('Оскар', 'Стой', '2019-08-05'),
 	('Дора', 'Быстрей', '2020-06-01');
 ```
+
+10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+
+```sql
+drop table camels;
+
+-- Добавляем таблицы без id
+create table equidae as
+select name, commands, birth_date from horses h
+union
+select name, commands, birth_date from donkeys d; 
+
+-- добавляем поле id
+alter table equidae
+add id int (11) not null first;
+
+alter table equidae
+add index (id);
+
+-- Делаем поле id с автозаполнением
+alter table equidae
+change id id int(11) not null auto_increment;
+
+select * from equidae;
+```
