@@ -168,7 +168,7 @@ change id id int(11) not null auto_increment;
 select * from equidae;
 ```
 
-11.Создать новую таблицу “молодые животные” в которую попадут все
+11. Создать новую таблицу “молодые животные” в которую попадут все
 животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
 до месяца подсчитать возраст животных в новой таблице
 
@@ -208,3 +208,34 @@ change id id int(11) not null auto_increment;
 select * from young_animals;
 ```
 
+12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+прошлую принадлежность к старым таблицам.
+```sql
+create table all_animals
+select * from
+	(
+	select 'dog' as type_animal, name, commands, birth_date from dogs d 
+	union
+	select 'cat' as type_animal, name, commands, birth_date from cats c
+	union
+	select 'hamster' as type_animal, name, commands, birth_date from hamsters h 
+	union
+	select 'horse' as type_animal, name, commands, birth_date from horses h2
+	union
+	select 'donkey' as type_animal, name, commands, birth_date from donkeys d2 
+	) as animals
+;
+
+-- добавляем поле id
+alter table all_animals
+add id int (11) not null first;
+
+alter table all_animals
+add index (id);
+
+-- Делаем поле id с автозаполнением
+alter table all_animals
+change id id int(11) not null auto_increment;
+
+select * from all_animals;
+```
