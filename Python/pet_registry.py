@@ -100,6 +100,7 @@ def look_commands(file):
     # Проверяем, есть ли база данных с животными
     if not file.is_file():
         print('Вбазе данных нет ни одного животного.')
+        return
     else:
         # Если есть то загружаем ее
         with open(file, 'r', encoding='utf-8') as file_read:
@@ -141,6 +142,7 @@ def add_command(file):
     # Проверяем, есть ли база данных с животными
     if not file.is_file():
         print('Вбазе данных нет ни одного животного.')
+        return
     else:
         # Если есть то загружаем ее
         with open(file, 'r', encoding='utf-8') as file_read:
