@@ -1,0 +1,50 @@
+{
+  "Dogs": [
+    {
+      "name": "Шарик",
+      "birthday": "2015-05-15",
+      "commands": [
+        "лежать",
+        "голос"
+      ],
+      "id_animal": 1
+    },
+    {
+      "name": "Дружок",
+      "birthday": "2020-03-05",
+      "commands": [
+        "голос"
+      ],
+      "id_animal": 2
+    }
+  ],
+  "Cats": [
+    {
+      "name": "Мурка",
+      "birthday": "2021-12-21",
+      "commands": [
+        "мур-мяу"
+      ],
+      "id_animal": 3
+    },
+    {
+      "name": "мурзик",
+      "birthday": "2023-04-30",
+      "commands": [
+        "ко_мне"
+      ],
+      "id_animal": 5
+    }
+  ],
+  "Hamsters": [
+    {
+      "name": "Рыжик",
+      "birthday": "2023-03-15",
+      "commands": [
+        "лежать",
+        "стоять"
+      ],
+      "id_animal": 4
+    }
+  ]
+}
